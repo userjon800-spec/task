@@ -1,0 +1,29 @@
+{
+  "search": {
+    "title": "Orzuingizdagi kompaniyalarni toping",
+    "subtitle": "Kompaniyaning GitHub tashkilotiga kirib, ularning texnik stekini, dasturlash tillarini va ochiq kodli loyihalarini tahlil qiling",
+    "placeholder": "GitHub org nomini kiriting (masalan microsoft)",
+    "button": "Qidirish",
+    "suggested": "Mashhur tashkilotlar"
+  },
+  "org": {
+    "techStack": "Texnologiyalar",
+    "repositories": "Repozitoriylar",
+    "contributors": "Asosiy hissadorlar",
+    "stars": "yulduz",
+    "forks": "fork",
+    "lastUpdated": "yangilangan",
+    "viewOnGitHub": "GitHub'da ko'rish",
+    "followers": "obunachilar",
+    "repos": "repozitoriy"
+  },
+  "errors": {
+    "notFound": "Tashkilot topilmadi",
+    "rateLimit": "GitHub API limiti tugadi. Bir soat kuting.",
+    "tryAnother": "Boshqasini qidirish",
+    "emptyRepos": "Bu tashkilotning ommaviy repolari yo'q"
+  },
+  "nav": {
+    "language": "Til"
+  }
+}

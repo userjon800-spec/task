@@ -1,0 +1,29 @@
+{
+  "search": {
+    "title": "Research Your Dream Companies",
+    "subtitle": "Enter a company's GitHub organization to analyze their tech stack, programming languages, and open source projects",
+    "placeholder": "Enter GitHub org name (e.g. microsoft, apple)",
+    "button": "Explore",
+    "suggested": "Popular Organizations"
+  },
+  "org": {
+    "techStack": "Tech Stack",
+    "repositories": "Repositories",
+    "contributors": "Top Contributors",
+    "stars": "stars",
+    "forks": "forks",
+    "lastUpdated": "last updated",
+    "viewOnGitHub": "View on GitHub",
+    "followers": "followers",
+    "repos": "repositories"
+  },
+  "errors": {
+    "notFound": "Organization not found",
+    "rateLimit": "GitHub API rate limit reached. Please wait an hour.",
+    "tryAnother": "Try another org",
+    "emptyRepos": "This organization has no public repositories"
+  },
+  "nav": {
+    "language": "Language"
+  }
+}
