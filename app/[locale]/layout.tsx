@@ -12,6 +12,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Company Tech Stack Explorer",
   description: `Build a Company Tech Stack Explorer — a tool that helps WorkXplorer students research potential employers by analyzing their public GitHub presence. A student types a company's GitHub organization name, and the app fetches that org's public repositories, aggregates the programming languages used across all repos, and renders a clean tech stack profile card.`,
+  icons: {
+    icon: `https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg`,
+  },
 };
 export default async function RootLayout({
   children,
@@ -20,8 +23,8 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  if (typeof window !== 'undefined'){
-    return null
+  if (typeof window !== "undefined") {
+    return null;
   }
   const { locale } = await params;
   const messages = await getMessages();

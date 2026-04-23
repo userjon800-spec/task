@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 export default function Page() {
   const router = useRouter();
   const t = useTranslations("search");
@@ -30,7 +31,7 @@ export default function Page() {
   ];
   const handleExplore = () => {
     if (!orgName.trim()) return;
-    alert(`Analysing ${orgName}... (implementation can be added)`);
+    router.push(`/org/${orgName}`);
   };
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
@@ -43,20 +44,20 @@ export default function Page() {
             className="flex items-center gap-2"
           >
             <FaGithub className="w-7 h-7 sm:w-8 sm:h-8 text-gray-800 dark:text-white" />
-            <span className="font-bold text-xl sm:text-2xl bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <span className="font-bold text-xl sm:text-2xl bg-linear-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
               Company Tech Stack Explorer
             </span>
           </motion.div>
           <div className="flex items-center gap-3">
             <div className="flex gap-1 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full p-1 shadow-sm">
               {languages.map((lang) => (
-                <button
+                <Button
                   key={lang.code}
                   onClick={() => router.push(`/${lang.code}`)}
-                  className="px-3 py-1.5 text-sm font-medium rounded-full transition-all hover:bg-white dark:hover:bg-gray-700 hover:shadow"
+                  className="px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all hover:bg-white dark:hover:bg-gray-700 hover:shadow"
                 >
                   {lang.label}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -68,7 +69,7 @@ export default function Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-linear-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-4">
             {t("title")}
           </h1>
           <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-12">
@@ -97,7 +98,7 @@ export default function Page() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleExplore}
-              className="bg-gradient-to-r from-gray-800 to-gray-700 dark:from-blue-600 dark:to-blue-500 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all"
+              className="bg-linear-to-r from-gray-800 to-gray-700 dark:from-blue-600 dark:to-blue-500 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all"
             >
               {t("button")}
               <ArrowRight className="w-4 h-4" />
@@ -125,7 +126,7 @@ export default function Page() {
                 onClick={() => setOrgName(org.org)}
                 className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:shadow-md transition-all flex items-center justify-center gap-1.5 group"
               >
-                <FaGithub className="w-3.5 h-3.5" />
+                <FaGithub className="w-4 h-4" />
                 {org.name}
                 <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition" />
               </motion.button>

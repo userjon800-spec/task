@@ -14,10 +14,10 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
   ]),
   {
-    rules:{
+    rules: {
       "@typescript-eslint/no-unused-vars": "off",
-    }
-  }
+      "prefer-const": "off",
+    },
+  },
 ]);
-
 export default eslintConfig;
