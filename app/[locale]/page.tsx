@@ -23,7 +23,7 @@ export default function Page() {
   ];
   const popularOrgs = [
     { name: "Facebook", org: "facebook" },
-    { name: "Microsoft", org: "microsoft" },
+    { name: "Telegram", org: "telegramdesktop" },
     { name: "Google", org: "google" },
     { name: "Vercel", org: "vercel" },
     { name: "Netflix", org: "netflix" },

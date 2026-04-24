@@ -20,3 +20,9 @@ export interface IRepo {
   size: number;
   watchers: number;
 }
+export interface Contributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+  contributions: number;
+}

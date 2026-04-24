@@ -12,7 +12,6 @@ export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ slug: string }> },
 ) {
-  // localhost:3000/api/orgs/vercel/languages
   const paramsPromise = params;
   const { slug } = await paramsPromise;
   try {
@@ -56,7 +55,6 @@ export async function GET(
       if (!result) continue;
       const { repo, langs } = result;
       const repoTotal = Object.values(langs).reduce(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (a: number, b: any) => a + b,
         0,
       );
