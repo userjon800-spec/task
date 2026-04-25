@@ -1,38 +1,30 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
-
 interface RateLimitErrorProps {
   resetTime: Date;
 }
-
 export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
   const [timeLeft, setTimeLeft] = useState<string>("");
-
   useEffect(() => {
     const updateTimer = () => {
       const now = new Date();
       const diff = resetTime.getTime() - now.getTime();
-
       if (diff <= 0) {
         window.location.reload();
         return;
       }
-
       const minutes = Math.floor(diff / 60000);
       const seconds = Math.floor((diff % 60000) / 1000);
       setTimeLeft(`${minutes}m ${seconds}s`);
     };
-
     updateTimer();
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, [resetTime]);
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -49,16 +41,13 @@ export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
           >
             <AlertCircle className="w-10 h-10 text-yellow-500" />
           </motion.div>
-
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             GitHub API Rate Limit Exceeded
           </h2>
-
           <p className="text-gray-500 dark:text-gray-400">
             GitHub API allows 60 unauthenticated requests per hour. You have
             reached this limit.
           </p>
-
           <div className="flex items-center justify-center gap-2 text-sm font-mono bg-gray-100 dark:bg-gray-800 rounded-lg p-3">
             <Clock className="w-4 h-4 text-blue-500" />
             <span>Resets in: </span>
@@ -66,7 +55,6 @@ export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
               {timeLeft}
             </span>
           </div>
-
           <Button
             onClick={() => window.location.reload()}
             className="gap-2 mt-2"
@@ -75,7 +63,6 @@ export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
             Try Again
             <AlertCircle className="w-4 h-4" />
           </Button>
-
           <p className="text-xs text-gray-400">
             Tip: Add a GitHub token to increase limit to 5000 requests/hour
           </p>

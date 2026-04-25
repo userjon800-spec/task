@@ -19,6 +19,7 @@ export interface IRepo {
   html_url: string;
   size: number;
   watchers: number;
+  pushed_at: string;
 }
 export interface Contributor {
   login: string;

@@ -21,7 +21,6 @@ export async function GET(
         },
       },
     );
-
     const company = await fetch(`https://api.github.com/orgs/${slug}`, {
       headers: {
         Accept: "application/vnd.github+json",

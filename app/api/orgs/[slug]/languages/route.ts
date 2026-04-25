@@ -58,16 +58,12 @@ export async function GET(
         (a: number, b: any) => a + b,
         0,
       );
-      console.log(repoTotal, "repo total");
       if (repoTotal === 0) continue;
       for (const [lang, bytes] of Object.entries(langs)) {
-        console.log(lang, bytes, "lang bytes");
         const weight = ((bytes as number) / repoTotal) * repo.size;
-        console.log(weight, "weight");
         totals[lang] = (totals[lang] ?? 0) + weight;
       }
       const grandTotal = Object.values(totals).reduce((a, b) => a + b, 0);
-      console.log(grandTotal, "grand total");
       const language = Object.entries(totals)
         .map(([name, value]) => ({
           name,
@@ -75,9 +71,6 @@ export async function GET(
         }))
         .sort((a, b) => a.percentage - b.percentage)
         .slice(0, 10);
-      console.log(language, "language");
-      console.log("TOTALS:", totals);
-      console.log("GRAND:", grandTotal);
       return NextResponse.json(
         {
           language,

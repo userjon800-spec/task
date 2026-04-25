@@ -1,9 +1,7 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Inbox, FolderOpen } from "lucide-react";
-
 export default function EmptyState() {
   return (
     <motion.div

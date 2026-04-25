@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,14 +6,11 @@ import { Button } from "@/components/ui/button";
 import { IRepo } from "@/types/index";
 import { Star, GitFork, Calendar, ExternalLink } from "lucide-react";
 import { getRelativeTime } from "@/lib/relativeTime";
-
 interface PopularReposProps {
   repos: IRepo[];
 }
-
 export default function PopularRepos({ repos }: PopularReposProps) {
   if (repos.length === 0) return null;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -65,7 +61,7 @@ export default function PopularRepos({ repos }: PopularReposProps) {
                     </div>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
-                      {/* <span>Updated {getRelativeTime(repo.pushed_at)}</span> */}
+                      <span>Updated {getRelativeTime((repo.pushed_at as unknown as string))}</span>
                     </div>
                   </div>
                 </div>

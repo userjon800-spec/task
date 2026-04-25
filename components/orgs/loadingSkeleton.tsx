@@ -1,9 +1,7 @@
 "use client";
-
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-
 export default function LoadingSkeleton() {
   return (
     <motion.div
@@ -28,8 +26,6 @@ export default function LoadingSkeleton() {
             </div>
           </CardContent>
         </Card>
-
-        {/* Tech Stack Skeleton */}
         <div className="mt-8">
           <Card className="border-0 shadow-xl">
             <CardContent className="p-6 space-y-4">
@@ -44,8 +40,7 @@ export default function LoadingSkeleton() {
             </CardContent>
           </Card>
         </div>
-
-        {/* Grid Skeleton */}
+        {/* Gri Skeleton */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
           <div className="lg:col-span-1">
             <Card className="border-0 shadow-xl">

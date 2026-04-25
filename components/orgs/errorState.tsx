@@ -1,18 +1,14 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Search, ArrowLeft } from "lucide-react";
-
 interface ErrorStateProps {
   orgName: string;
 }
-
 export default function ErrorState({ orgName }: ErrorStateProps) {
   const router = useRouter();
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -29,16 +25,13 @@ export default function ErrorState({ orgName }: ErrorStateProps) {
           >
             <Search className="w-10 h-10 text-red-500" />
           </motion.div>
-
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             Organization not found
           </h2>
-
           <p className="text-gray-500 dark:text-gray-400">
             We couldn&apos;t find an organization named &quot;{orgName}&quot; on
             GitHub. Please check the name and try again.
           </p>
-
           <div className="flex gap-3 justify-center pt-4">
             <Button
               variant="outline"

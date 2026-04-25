@@ -1,23 +1,19 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Contributor } from "@/types/index";
 import { Users, Trophy, GitFork, ExternalLink } from "lucide-react";
-
 interface TopContributorsProps {
   contributors: Contributor[];
 }
-
 export default function TopContributors({
   contributors,
 }: TopContributorsProps) {
   if (!contributors || contributors.length === 0) {
     return null;
   }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

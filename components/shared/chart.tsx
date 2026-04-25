@@ -38,6 +38,7 @@ function describeArc(
   `;
 }
 export default function PieChart({ data }: { data: Language[] }) {
+  if (data.length === 0) return null;
   const cx = 150;
   const cy = 150;
   const r = 120;

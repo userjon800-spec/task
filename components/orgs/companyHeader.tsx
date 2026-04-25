@@ -1,18 +1,16 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ICompany } from "@/types/index";
-import { MapPin, Link as LinkIcon, Users, FolderGit2 } from "lucide-react";
+import { MapPin, Link as LinkIcon, FolderGit2, Users } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-
-interface CompanyHeaderProps {
-  company: ICompany;
-}
-
-export default function CompanyHeader({ company }: CompanyHeaderProps) {
+export default function CompanyHeader({ company }: { company: ICompany }) {
+  const stats = [
+    { label: "repositories", value: company.public_repos, icon: FolderGit2 },
+    { label: "followers", value: company.followers, icon: Users },
+  ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,7 +33,6 @@ export default function CompanyHeader({ company }: CompanyHeaderProps) {
                 </AvatarFallback>
               </Avatar>
             </motion.div>
-
             <div className="flex-1 space-y-3">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
@@ -54,25 +51,27 @@ export default function CompanyHeader({ company }: CompanyHeaderProps) {
                   </a>
                 </Button>
               </div>
-
               {company.description && (
                 <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                   {company.description}
                 </p>
               )}
-
-              {/* <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-wrap gap-6 pt-2">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-2 text-sm">
-                    <stat.icon className="w-4 h-4 text-gray-400" />
+                  <div
+                    key={stat.label}
+                    className="flex items-center gap-2 text-sm"
+                  >
+                    <stat.icon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                     <span className="font-semibold text-gray-900 dark:text-white">
                       {stat.value.toLocaleString()}
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400">{stat.label}</span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      {stat.label}
+                    </span>
                   </div>
                 ))}
-              </div> */}
-
+              </div>
               <div className="flex flex-wrap gap-3 pt-2 text-sm text-gray-500 dark:text-gray-400">
                 {company.location && (
                   <div className="flex items-center gap-1">

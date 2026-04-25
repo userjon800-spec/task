@@ -1,19 +1,30 @@
 "use client";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Code, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
-interface TechStackProfileProps {
-  topLanguage: string | null;
-  topLanguagePercent: number;
-  techDiversityScore: number;
+interface Language {
+  name: string;
+  percentage: number;
 }
-export default function TechStackProfile({
-  topLanguage,
-  topLanguagePercent,
-  techDiversityScore,
-}: TechStackProfileProps) {
+interface TechStackProfileProps {
+  language: Language[];
+}
+export default function TechStackProfile({ language }: TechStackProfileProps) {
+  const sortedLanguages = [...language].sort(
+    (a, b) => b.percentage - a.percentage,
+  );
+  const primaryTechs = sortedLanguages.slice(0, 4);
+  const topLanguage = sortedLanguages[0];
+  const techDiversityScore = Math.min(
+    100,
+    Math.floor(sortedLanguages.length * 10),
+  );
+  if (!language || language.length === 0) {
+    return null;
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -34,15 +45,17 @@ export default function TechStackProfile({
               Primary Technologies
             </p>
             <div className="flex flex-wrap gap-2">
-              {/* {primaryTechs.map(([lang]) => (
-                <Badge key={lang} variant="secondary" className="px-3 py-1 text-sm">
-                  {lang}
+              {primaryTechs.map((lang) => (
+                <Badge
+                  key={lang.name}
+                  variant="secondary"
+                  className="px-3 py-1.5 text-sm font-medium"
+                >
+                  {lang.name}
                 </Badge>
-              ))} */}
+              ))}
             </div>
           </div>
-
-          {/* Top Language */}
           {topLanguage && (
             <div>
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
@@ -50,17 +63,15 @@ export default function TechStackProfile({
               </p>
               <div className="flex items-center justify-between mb-2">
                 <span className="font-semibold text-gray-900 dark:text-white">
-                  {topLanguage}
+                  {topLanguage.name}
                 </span>
                 <span className="text-sm text-gray-500">
-                  {topLanguagePercent.toFixed(1)}% of codebase
+                  {topLanguage.percentage.toFixed(1)}% of codebase
                 </span>
               </div>
-              <Progress value={topLanguagePercent} className="h-2" />
+              <Progress value={topLanguage.percentage} className="h-2" />
             </div>
           )}
-
-          {/* Tech Diversity Score */}
           <div>
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
@@ -77,7 +88,7 @@ export default function TechStackProfile({
               value={techDiversityScore}
               className={cn(
                 "h-2",
-                techDiversityScore < 50 ? "bg-red-500" : "bg-yellow-500",
+                techDiversityScore < 50 ? "bg-rose-500" : "bg-yellow-500",
               )}
             />
           </div>

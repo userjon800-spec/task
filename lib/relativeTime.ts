@@ -8,11 +8,12 @@ export function getRelativeTime(dateString: string): string {
   const diffDay = Math.floor(diffHour / 24);
   const diffMonth = Math.floor(diffDay / 30);
   const diffYear = Math.floor(diffDay / 365);
-  if (diffSec < 60) return `hozirgina`;
-  if (diffMin < 60) return `${diffMin} minut oldin`;
-  if (diffHour < 24) return `${diffHour} soat oldin`;
-  if (diffDay === 1) return `kecha`;
-  if (diffDay < 30) return `${diffDay} kun oldin`;
-  if (diffMonth < 12) return `${diffMonth} oy oldin`;
-  return `${diffYear} yil oldin`;
+  if (diffSec < 60) return "just now";
+  if (diffMin < 60) return `${diffMin} minute${diffMin !== 1 ? "s" : ""} ago`;
+  if (diffHour < 24) return `${diffHour} hour${diffHour !== 1 ? "s" : ""} ago`;
+  if (diffDay === 1) return "yesterday";
+  if (diffDay < 30) return `${diffDay} day${diffDay !== 1 ? "s" : ""} ago`;
+  if (diffMonth < 12)
+    return `${diffMonth} month${diffMonth !== 1 ? "s" : ""} ago`;
+  return `${diffYear} year${diffYear !== 1 ? "s" : ""} ago`;
 }
