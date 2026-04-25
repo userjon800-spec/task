@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 export default function Page() {
   const router = useRouter();
   const t = useTranslations("search");
@@ -98,7 +99,7 @@ export default function Page() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleExplore}
-              className="bg-linear-to-r from-gray-800 to-gray-700 dark:from-blue-600 dark:to-blue-500 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all"
+              className="bg-linear-to-r from-gray-800 to-gray-700 dark:from-blue-600 cursor-pointer dark:to-blue-500 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all"
             >
               {t("button")}
               <ArrowRight className="w-4 h-4" />
@@ -124,7 +125,7 @@ export default function Page() {
                 transition={{ delay: 0.4 + idx * 0.05 }}
                 whileHover={{ y: -4, scale: 1.02 }}
                 onClick={() => setOrgName(org.org)}
-                className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:shadow-md transition-all flex items-center justify-center gap-1.5 group"
+                className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:shadow-md transition-all flex items-center justify-center gap-1.5 group cursor-pointer"
               >
                 <FaGithub className="w-4 h-4" />
                 {org.name}
@@ -139,10 +140,6 @@ export default function Page() {
           transition={{ delay: 0.6 }}
           className="mt-16 flex justify-center gap-4 text-xs text-gray-400 dark:text-gray-500"
         >
-          <div className="flex items-center gap-1">
-            <Code className="w-3 h-3" />
-            <span>React • Next.js</span>
-          </div>
         </motion.div>
       </div>
     </div>

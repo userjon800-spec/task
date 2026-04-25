@@ -5,12 +5,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Contributor } from "@/types/index";
 import { Users, Trophy, GitFork, ExternalLink } from "lucide-react";
+import { useTranslations } from "next-intl";
 interface TopContributorsProps {
   contributors: Contributor[];
 }
 export default function TopContributors({
   contributors,
 }: TopContributorsProps) {
+  const t = useTranslations('org');
   if (!contributors || contributors.length === 0) {
     return null;
   }
@@ -20,12 +22,12 @@ export default function TopContributors({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
     >
-      <Card className="border-0 shadow-xl">
+      <Card className="border-0 shadow-xl rounded-2xl my-3">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Users className="w-5 h-5" />
-            Top Contributors
-            <Badge variant="secondary">Top {contributors.length}</Badge>
+            {t("contributors")}
+            <Badge variant="secondary">Top{contributors.length}</Badge>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">

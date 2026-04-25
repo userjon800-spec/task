@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import { IRepo } from "@/types/index";
 import { Star, GitFork, Calendar, ExternalLink } from "lucide-react";
 import { getRelativeTime } from "@/lib/relativeTime";
+import { useTranslations } from "next-intl";
 interface PopularReposProps {
   repos: IRepo[];
 }
 export default function PopularRepos({ repos }: PopularReposProps) {
+  const t = useTranslations("org");
   if (repos.length === 0) return null;
   return (
     <motion.div
@@ -17,11 +19,13 @@ export default function PopularRepos({ repos }: PopularReposProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
     >
-      <Card className="border-0 shadow-xl">
+      <Card className="border-0 shadow-xl rounded-2xl my-3">
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            <span>Popular Repositories</span>
-            <Badge variant="outline">{repos.length} repositories</Badge>
+            <span>{t("popular")}</span>
+            <Badge variant="outline">
+              {repos.length} {t("repositories")}
+            </Badge>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -61,7 +65,10 @@ export default function PopularRepos({ repos }: PopularReposProps) {
                     </div>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
-                      <span>Updated {getRelativeTime((repo.pushed_at as unknown as string))}</span>
+                      <span>
+                        {t('lastUpdated')} {" "}
+                        {getRelativeTime(repo.pushed_at as unknown as string)}
+                      </span>
                     </div>
                   </div>
                 </div>

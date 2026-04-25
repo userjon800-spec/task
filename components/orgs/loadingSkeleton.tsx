@@ -40,7 +40,6 @@ export default function LoadingSkeleton() {
             </CardContent>
           </Card>
         </div>
-        {/* Gri Skeleton */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
           <div className="lg:col-span-1">
             <Card className="border-0 shadow-xl">

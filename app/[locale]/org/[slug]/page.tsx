@@ -92,14 +92,15 @@ export default function OrgPage(): JSX.Element {
   }
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+        <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.4 }}
-        className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+        className="min-h-screen bg-linear-to-br mx-auto max-w-390 from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
       >
-        {/* max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 */}
+        {/* max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 */}  
         <div className="">
           {company && <CompanyHeader company={company} />}
           {/* grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 */}
@@ -125,6 +126,7 @@ export default function OrgPage(): JSX.Element {
           </div>
         </div>
       </motion.div>
+      </div>
     </AnimatePresence>
   );
 }

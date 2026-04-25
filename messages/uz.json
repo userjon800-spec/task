@@ -7,21 +7,38 @@
     "suggested": "Mashhur tashkilotlar"
   },
   "org": {
-    "techStack": "Texnologiyalar",
     "repositories": "Repozitoriylar",
     "contributors": "Asosiy hissadorlar",
     "stars": "yulduz",
     "forks": "fork",
-    "lastUpdated": "yangilangan",
+    "lastUpdated": "Yangilandi",
     "viewOnGitHub": "GitHub'da ko'rish",
     "followers": "obunachilar",
-    "repos": "repozitoriy"
+    "repos": "repozitoriy",
+    "website": "Sayt",
+    "distribution": "Til taqsimoti",
+    "total": "Jami tillar",
+    "analyz": "Tahlil qilingan omborlar",
+    "stack": "Texnik stack profili",
+    "primary": "Asosiy texnologiyalar",
+    "top": "Mashhur til",
+    "base": "kod bazasidan",
+    "score": "Texnik xilma-xillik ballari",
+    "popular": "Mashhur repozitoriylar"
   },
   "errors": {
     "notFound": "Tashkilot topilmadi",
     "rateLimit": "GitHub API limiti tugadi. Bir soat kuting.",
-    "tryAnother": "Boshqasini qidirish",
-    "emptyRepos": "Bu tashkilotning ommaviy repolari yo'q"
+    "tryAnother": "GitHub'da. Iltimos, nomni tekshiring va qaytadan urinib ko'ring.",
+    "anoter": "Biz ushbu nomdagi tashkilotni topa olmadik",
+    "emptyRepos": "Bu tashkilotning ommaviy repolari yo'q",
+    "back": "Orqaga",
+    "try": "Boshqa tashkilotni sinab ko'ring",
+    "allow": "GitHub API soatiga 60 ta tasdiqlanmagan so'rovga ruxsat beradi. Siz ushbu cheklovga yetdingiz.",
+    "again": "Yana bir marta",
+    "reset": "Qayta tiklash",
+    "tip": "Maslahat: Soatiga 5000 ta so'rovgacha limitni oshirish uchun GitHub tokenini qo'shing",
+    "check": "Yangilanishlar uchun keyinroq qayta tekshirib ko'ring"
   },
   "nav": {
     "language": "Til"

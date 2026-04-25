@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Code, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 interface Language {
   name: string;
   percentage: number;
@@ -13,6 +14,7 @@ interface TechStackProfileProps {
   language: Language[];
 }
 export default function TechStackProfile({ language }: TechStackProfileProps) {
+  const t = useTranslations("org");
   const sortedLanguages = [...language].sort(
     (a, b) => b.percentage - a.percentage,
   );
@@ -32,17 +34,17 @@ export default function TechStackProfile({ language }: TechStackProfileProps) {
       transition={{ duration: 0.5, delay: 0.1 }}
       className="mt-8"
     >
-      <Card className="border-0 shadow-xl bg-linear-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5">
+      <Card className="border-0 rounded-2xl my-3 shadow-xl bg-linear-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-xl">
             <Code className="w-5 h-5 text-blue-500" />
-            Tech Stack Profile
+            {t("stack")}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
             <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">
-              Primary Technologies
+              {t("primary")}
             </p>
             <div className="flex flex-wrap gap-2">
               {primaryTechs.map((lang) => (
@@ -59,14 +61,14 @@ export default function TechStackProfile({ language }: TechStackProfileProps) {
           {topLanguage && (
             <div>
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
-                Top Language
+                {t("top")}
               </p>
               <div className="flex items-center justify-between mb-2">
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {topLanguage.name}
                 </span>
                 <span className="text-sm text-gray-500">
-                  {topLanguage.percentage.toFixed(1)}% of codebase
+                  {topLanguage.percentage.toFixed(1)}% {t("base")}
                 </span>
               </div>
               <Progress value={topLanguage.percentage} className="h-2" />
@@ -75,7 +77,7 @@ export default function TechStackProfile({ language }: TechStackProfileProps) {
           <div>
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                Tech Diversity Score
+                {t("score")}
               </p>
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4 text-yellow-500" />

@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import { ICompany } from "@/types/index";
 import { MapPin, Link as LinkIcon, FolderGit2, Users } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 export default function CompanyHeader({ company }: { company: ICompany }) {
+  const t = useTranslations("org");
   const stats = [
-    { label: "repositories", value: company.public_repos, icon: FolderGit2 },
-    { label: "followers", value: company.followers, icon: Users },
+    { label: t("repositories"), value: company.public_repos, icon: FolderGit2 },
+    { label: t("followers"), value: company.followers, icon: Users },
   ];
   return (
     <motion.div
@@ -17,7 +19,7 @@ export default function CompanyHeader({ company }: { company: ICompany }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="border-0 shadow-xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+      <Card className="shadow-xl bg-white/80 rounded-2xl my-3 dark:bg-gray-900/80 backdrop-blur-sm">
         <CardContent className="p-6 sm:p-8">
           <div className="flex flex-col md:flex-row gap-6">
             <motion.div
@@ -88,7 +90,7 @@ export default function CompanyHeader({ company }: { company: ICompany }) {
                       rel="noopener noreferrer"
                       className="hover:text-blue-500"
                     >
-                      Website
+                      {t('website')}
                     </a>
                   </div>
                 )}

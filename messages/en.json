@@ -7,21 +7,38 @@
     "suggested": "Popular Organizations"
   },
   "org": {
-    "techStack": "Tech Stack",
     "repositories": "Repositories",
     "contributors": "Top Contributors",
     "stars": "stars",
     "forks": "forks",
-    "lastUpdated": "last updated",
+    "lastUpdated": "Updated",
     "viewOnGitHub": "View on GitHub",
     "followers": "followers",
-    "repos": "repositories"
+    "repos": "repositories",
+    "website": "Website",
+    "distribution": "Language Distribution",
+    "total": "Total languages",
+    "analyz": "Analyzed repos",
+    "stack": "Tech Stack Profile",
+    "primary": "Primary Technologies",
+    "top": "Top Language",
+    "base": "of codebase",
+    "score": "Tech Diversity Score",
+    "popular": "Popular Repositories"
   },
   "errors": {
     "notFound": "Organization not found",
     "rateLimit": "GitHub API rate limit reached. Please wait an hour.",
-    "tryAnother": "Try another org",
-    "emptyRepos": "This organization has no public repositories"
+    "tryAnother": "on GitHub. Please check the name and try again.",
+    "anoter": "We couldn't find an organization named",
+    "emptyRepos": "This organization has no public repositories",
+    "back": "Go Back",
+    "try": "Try Another Organization",
+    "allow": "GitHub API allows 60 unauthenticated requests per hour. You have reached this limit.",
+    "again": "Try Again",
+    "reset": "Resets in",
+    "tip": "Tip: Add a GitHub token to increase limit to 5000 requests/hour",
+    "check": "Check back later for updates"
   },
   "nav": {
     "language": "Language"

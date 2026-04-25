@@ -4,10 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 interface RateLimitErrorProps {
   resetTime: Date;
 }
 export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
+  const t = useTranslations("errors");
   const [timeLeft, setTimeLeft] = useState<string>("");
   useEffect(() => {
     const updateTimer = () => {
@@ -42,15 +44,12 @@ export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
             <AlertCircle className="w-10 h-10 text-yellow-500" />
           </motion.div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            GitHub API Rate Limit Exceeded
+            {t("rateLimit")}
           </h2>
-          <p className="text-gray-500 dark:text-gray-400">
-            GitHub API allows 60 unauthenticated requests per hour. You have
-            reached this limit.
-          </p>
+          <p className="text-gray-500 dark:text-gray-400">{t("allow")}</p>
           <div className="flex items-center justify-center gap-2 text-sm font-mono bg-gray-100 dark:bg-gray-800 rounded-lg p-3">
             <Clock className="w-4 h-4 text-blue-500" />
-            <span>Resets in: </span>
+            <span>{t("reset")}: </span>
             <span className="font-bold text-blue-600 dark:text-blue-400">
               {timeLeft}
             </span>
@@ -60,12 +59,10 @@ export default function RateLimitError({ resetTime }: RateLimitErrorProps) {
             className="gap-2 mt-2"
             disabled={parseInt(timeLeft) > 0}
           >
-            Try Again
+            {t("again")}
             <AlertCircle className="w-4 h-4" />
           </Button>
-          <p className="text-xs text-gray-400">
-            Tip: Add a GitHub token to increase limit to 5000 requests/hour
-          </p>
+          <p className="text-xs text-gray-400">{t("tip")}</p>
         </CardContent>
       </Card>
     </motion.div>

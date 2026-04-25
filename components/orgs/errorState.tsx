@@ -4,10 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Search, ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
 interface ErrorStateProps {
   orgName: string;
 }
 export default function ErrorState({ orgName }: ErrorStateProps) {
+  const t = useTranslations("errors");
   const router = useRouter();
   return (
     <motion.div
@@ -26,11 +28,10 @@ export default function ErrorState({ orgName }: ErrorStateProps) {
             <Search className="w-10 h-10 text-red-500" />
           </motion.div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Organization not found
+            {t("notFound")}
           </h2>
           <p className="text-gray-500 dark:text-gray-400">
-            We couldn&apos;t find an organization named &quot;{orgName}&quot; on
-            GitHub. Please check the name and try again.
+            {t("anoter")} &quot;{orgName}&quot; {t("tryAnother")}
           </p>
           <div className="flex gap-3 justify-center pt-4">
             <Button
@@ -39,10 +40,10 @@ export default function ErrorState({ orgName }: ErrorStateProps) {
               className="gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
-              Go Back
+              {t("back")}
             </Button>
             <Button onClick={() => router.push("/")} className="gap-2">
-              Try Another Org
+              {t("try")}
               <Search className="w-4 h-4" />
             </Button>
           </div>

@@ -2,7 +2,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Inbox, FolderOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 export default function EmptyState() {
+  const t = useTranslations("errors");
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,14 +22,14 @@ export default function EmptyState() {
             <Inbox className="w-8 h-8 text-gray-400" />
           </motion.div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            No Repositories Found
+            {t("notFound")}
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            This organization doesn&apos;t have any public repositories yet.
+            {t("emptyRepos")}
           </p>
           <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-400">
             <FolderOpen className="w-3 h-3" />
-            <span>Check back later for updates</span>
+            <span>{t("check")}</span>
           </div>
         </CardContent>
       </Card>
