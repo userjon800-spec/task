@@ -100,20 +100,16 @@ export default function OrgPage(): JSX.Element {
         transition={{ duration: 0.4 }}
         className="min-h-screen bg-linear-to-br mx-auto max-w-390 from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
       >
-        {/* max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 */}  
-        <div className="">
+        <div>
           {company && <CompanyHeader company={company} />}
-          {/* grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 */}
-          <div className="">
-            {/* lg:col-span-1 */}
-            <div className="">
+          <div>
+            <div>
               {languages.language && <PieChart data={languages.language} />}
             </div>
-            <div className="">
+            <div>
               {languages.language && <TechStackProfile language={languages.language} />}
             </div>
-            {/* lg:col-span-2 space-y-8 */}
-            <div className="">
+            <div>
               {emptyRepos ? <EmptyState /> : <PopularRepos repos={topRepos} />}
             </div>
             <div>

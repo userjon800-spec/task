@@ -44,7 +44,10 @@ export default function CompanyHeader({ company }: { company: ICompany }) {
                 </div>
                 <Button asChild variant="default" className="gap-2">
                   <a
-                    href={company.html_url}
+                    href={
+                      company.html_url ??
+                      "https://forum.hestiacp.com/uploads/default/original/2X/9/9aae76309a614c85f880512d8fe7df158fec52cc.png"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -90,7 +93,7 @@ export default function CompanyHeader({ company }: { company: ICompany }) {
                       rel="noopener noreferrer"
                       className="hover:text-blue-500"
                     >
-                      {t('website')}
+                      {t("website")}
                     </a>
                   </div>
                 )}
