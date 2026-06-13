@@ -42,7 +42,7 @@ export default function CompanyHeader({ company }: { company: ICompany }) {
                     {company.name}
                   </h1>
                 </div>
-                <Button asChild variant="default" className="gap-2">
+                <Button asChild variant="default" className="gap-2 rounded-2xl">
                   <a
                     href={
                       company.html_url ??

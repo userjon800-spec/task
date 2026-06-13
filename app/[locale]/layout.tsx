@@ -23,9 +23,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  if (typeof window === "undefined") {
-    return null;
-  }
   const { locale } = await params;
   const messages = await getMessages();
   return (
